@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class FruitsController : MonoBehaviour
 {
@@ -93,6 +94,8 @@ public class FruitsController : MonoBehaviour
                 this._type = nextType;
                 this._data = new Data(nextType, this);
                 this.SetColor(GameManager.ColorPallet[nextType]);
+
+                this.transform.position = Vector3.Lerp(this.transform.position, other.transform.position, 0.5f);
             }
 
             GameManager.AddPoint((int)nextType);
